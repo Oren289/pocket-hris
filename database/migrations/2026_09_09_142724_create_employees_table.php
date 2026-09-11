@@ -17,6 +17,7 @@ return new class extends Migration
             // Link to the users table (one-to-one: each user account can have one employee profile)
             $table->foreignId('user_id')
                 ->unique()
+                ->nullable()
                 ->constrained('users')
                 ->onDelete('cascade');
 
