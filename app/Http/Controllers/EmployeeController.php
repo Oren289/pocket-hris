@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Employee;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\UpdateEmployeeRequest;
+use App\Models\Employee;
+use Illuminate\Http\RedirectResponse;
 
 class EmployeeController extends Controller
 {
@@ -14,6 +15,7 @@ class EmployeeController extends Controller
     public function index()
     {
         $employees = Employee::all();
+
         return view('employees.index', compact('employees'));
     }
 
@@ -28,9 +30,13 @@ class EmployeeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreEmployeeRequest $request)
+    public function store(StoreEmployeeRequest $request): RedirectResponse
     {
-        //
+        $validated = $request->validated();
+
+        Employee::create($validated);
+
+        return redirect()->route('employees.index')->with('success', 'Employee created successfully.');
     }
 
     /**

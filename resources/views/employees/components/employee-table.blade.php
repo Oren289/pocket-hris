@@ -1,6 +1,6 @@
 @props(['employees' => []])
 
-<div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+<div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xs">
     <div class="flex flex-col gap-4 border-b border-slate-200 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
             <h3 class="text-lg font-semibold text-slate-900">Employee directory</h3>
@@ -8,7 +8,7 @@
 
         <button
             type="button"
-            class="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-indigo-500"
+            class="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-xs transition hover:bg-indigo-500"
             onclick="add_employee_modal.showModal()"
         >
             Add employee

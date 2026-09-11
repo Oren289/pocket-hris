@@ -17,6 +17,7 @@ return new class extends Migration
             // Link to the users table (one-to-one: each user account can have one employee profile)
             $table->foreignId('user_id')
                 ->unique()
+                ->nullable()
                 ->constrained('users')
                 ->onDelete('cascade');
 
@@ -34,10 +35,8 @@ return new class extends Migration
             $table->string('phone', 30)->nullable();
 
             // Employment details
-            $table->foreignId('department_id')
-                ->nullable()
-                ->constrained('departments')
-                ->onDelete('set null');
+            // $table->foreignId('department_id')
+            //     ->nullable();
             $table->string('job_title')->nullable();
             $table->enum('employment_type', ['full_time', 'part_time', 'contract', 'intern'])
                 ->default('full_time');

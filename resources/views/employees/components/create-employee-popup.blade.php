@@ -1,5 +1,5 @@
-{{-- <dialog id="add_employee_modal" class="modal">
-    <div class="modal-box">
+<dialog id="add_employee_modal" class="modal">
+    <div class="modal-box w-11/12 max-w-5xl h-11/12">
         <form method="dialog">
             <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
         </form>
@@ -10,7 +10,7 @@
             </div>
         </div>
 
-        <form method="POST" action="#" class="space-y-6 p-6">
+        <form method="POST" action="{{ route('employees.store') }}" class="space-y-6 p-6">
             @csrf
 
             <div class="grid gap-4 md:grid-cols-2">
@@ -216,15 +216,4 @@
             </div>
         </form>
     </div>
-</dialog> --}}
-
-<!-- You can open the modal using ID.showModal() method -->
-<dialog id="add_employee_modal" class="modal">
-  <div class="modal-box">
-    <form method="dialog">
-      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-    </form>
-    <h3 class="text-lg font-bold">Hello!</h3>
-    <p class="py-4">Press ESC key or click on ✕ button to close</p>
-  </div>
 </dialog>

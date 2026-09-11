@@ -19,11 +19,8 @@ return new class extends Migration
             $table->text('description')->nullable();
 
             // Head of department, references the employees table
-            $table->foreignId('head_employee_id')
-                ->nullable()
-                ->constrained('employees')
-                ->onDelete('set null');
-
+            // $table->foreignId('head_employee_id')
+            //     ->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

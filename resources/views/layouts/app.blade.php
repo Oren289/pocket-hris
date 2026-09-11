@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="light">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +21,7 @@
             <div class="flex-1">
                 <!-- Page Heading -->
                 @isset($header)
-                    <header class="bg-white shadow-sm ring-1 ring-slate-200/80">
+                    <header class="bg-white shadow-xs ring-1 ring-slate-200/80">
                         <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
                             {{ $header }}
                         </div>

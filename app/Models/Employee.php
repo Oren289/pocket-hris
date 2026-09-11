@@ -25,7 +25,7 @@ class Employee extends Model
         'last_name',
         'email',
         'phone',
-        'department',
+        'department_id',
         'job_title',
         'employment_type',
         'status',

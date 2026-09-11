@@ -29,7 +29,7 @@ class Department extends Model
      */
     public function head(): BelongsTo
     {
-        return $this->belongsTo(Employee::class, 'head_employee_id');
+        return $this->belongsTo(Employee::class, 'dept_head_id');
     }
 
     /**
