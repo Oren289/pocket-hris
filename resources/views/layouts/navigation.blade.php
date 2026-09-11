@@ -2,7 +2,7 @@
     $navItems = [
         ['label' => 'Dashboard', 'route' => 'dashboard', 'icon' => 'home'],
         ['label' => 'Employees', 'route' => 'employees.index', 'icon' => 'user'],
-        ['label' => 'Departments', 'route' => 'employees.index', 'icon' => 'department'],
+        ['label' => 'Departments', 'route' => 'departments.index', 'icon' => 'department'],
         ['label' => 'Settings', 'route' => 'employees.index', 'icon' => 'settings'],
     ];
 @endphp

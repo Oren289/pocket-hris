@@ -25,14 +25,6 @@ class Department extends Model
     ];
 
     /**
-     * The employee who heads this department.
-     */
-    public function head(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class, 'dept_head_id');
-    }
-
-    /**
      * Employees belonging to this department.
      *
      * Requires a `department_id` foreign key on the employees table

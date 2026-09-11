@@ -35,8 +35,10 @@ return new class extends Migration
             $table->string('phone', 30)->nullable();
 
             // Employment details
-            // $table->foreignId('department_id')
-            //     ->nullable();
+            $table->foreignId('department_id')
+                ->nullable()
+                ->constrained('departments')
+                ->onDelete('set null');
             $table->string('job_title')->nullable();
             $table->enum('employment_type', ['full_time', 'part_time', 'contract', 'intern'])
                 ->default('full_time');

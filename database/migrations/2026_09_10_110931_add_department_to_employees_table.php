@@ -11,21 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('employees', function (Blueprint $table) {
-            $table->foreignId('department_id')
-                ->after('manager_id')
-                ->nullable()
-                ->constrained('departments')
-                ->onDelete('set null');
-        });
+        // Schema::table('employees', function (Blueprint $table) {
+        //     $table->foreignId('department_id')
+        //         ->after('manager_id')
+        //         ->nullable()
+        //         ->constrained('departments')
+        //         ->onDelete('set null');
+        // });
 
-        Schema::table('departments', function (Blueprint $table) {
-            $table->foreignId('dept_head_id')
-                ->after('description')
-                ->nullable()
-                ->constrained('employees')
-                ->onDelete('set null');
-        });
+        // Schema::table('departments', function (Blueprint $table) {
+        //     $table->foreignId('dept_head_id')
+        //         ->after('description')
+        //         ->nullable()
+        //         ->constrained('employees')
+        //         ->onDelete('set null');
+        // });
     }
 
     /**
