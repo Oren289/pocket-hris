@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\UpdateEmployeeRequest;
 use App\Models\Employee;
+use App\Models\Department;
 use Illuminate\Http\RedirectResponse;
 
 class EmployeeController extends Controller
@@ -15,8 +16,9 @@ class EmployeeController extends Controller
     public function index()
     {
         $employees = Employee::all();
+        $departments = Department::all();
 
-        return view('employees.index', compact('employees'));
+        return view('employees.index', compact('employees', 'departments'));
     }
 
     /**
@@ -52,7 +54,8 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-        //
+        $departments = Department::all();
+        return view('employees.edit', compact('employee', 'departments'));
     }
 
     /**
@@ -60,7 +63,10 @@ class EmployeeController extends Controller
      */
     public function update(UpdateEmployeeRequest $request, Employee $employee)
     {
-        //
+        $validated = $request->validated();
+        $employee->update($validated);
+
+        return redirect()->route('employees.index')->with('success', 'Employee updated successfully.');
     }
 
     /**
@@ -68,6 +74,8 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee)
     {
-        //
+        $employee->delete();
+
+        return redirect()->route('employees.index')->with('success', 'Employee deleted successfully.');
     }
 }

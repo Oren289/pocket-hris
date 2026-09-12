@@ -55,7 +55,7 @@ class Employee extends Model
         'hire_date' => 'date',
         'termination_date' => 'date',
         'date_of_birth' => 'date',
-        'salary' => 'decimal:2',
+        'salary' => 'decimal:2'
     ];
 
     /**
@@ -73,6 +73,14 @@ class Employee extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * The department this employee belongs to.
+     */
+    public function department(): BelongsTo
+    {
+        return $this->belongsTo(Department::class);
     }
 
     /**
