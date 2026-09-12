@@ -16,9 +16,13 @@
             <div class="grid gap-4 md:grid-cols-2">
                 <label class="form-control">
                     <span class="label-text mb-2 text-sm font-medium text-slate-700">User ID</span>
-                    <input type="number" name="user_id"
-                        class="input input-bordered input-sm h-11 w-full rounded-xl border-slate-200 bg-slate-50 focus:border-indigo-400 focus:bg-white"
-                        placeholder="1" />
+                    <select name="user_id"
+                        class="searchable-select-modal select select-bordered select-sm h-11 w-full rounded-xl border-slate-200 bg-slate-50 focus:border-indigo-400 focus:bg-white">
+                        <option value="" disabled selected hidden>Select a user</option>
+                        @foreach ($user as $u)
+                            <option value="{{ $u->id }}">{{ $u->name }}</option>
+                        @endforeach
+                    </select>
                 </label>
 
                 <label class="form-control">
@@ -66,7 +70,7 @@
                 <label class="form-control">
                     <span class="label-text mb-2 text-sm font-medium text-slate-700">Department</span>
                     <select name="department_id"
-                        class="select select-bordered select-sm h-11 w-full rounded-xl border-slate-200 bg-slate-50 focus:border-indigo-400 focus:bg-white">
+                        class="searchable-select-modal select select-bordered select-sm h-11 w-full rounded-xl border-slate-200 bg-slate-50 focus:border-indigo-400 focus:bg-white">
                         <option value="" disabled selected hidden>Select a department</option>
                         @foreach ($departments as $department)
                             <option value="{{ $department->id }}">{{ $department->name }}</option>

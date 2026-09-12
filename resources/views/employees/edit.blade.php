@@ -21,9 +21,13 @@
             <div class="grid gap-4 md:grid-cols-2">
                 <label class="form-control">
                     <span class="label-text mb-2 text-sm font-medium text-slate-700">User ID</span>
-                    <input type="number" name="user_id"
-                        class="input input-bordered input-sm h-11 w-full rounded-xl border-slate-200 bg-slate-50 focus:border-indigo-400 focus:bg-white"
-                        placeholder="1" value="{{ $employee->user_id }}" />
+                    <select name="user_id"
+                        class="searchable-select select select-bordered select-sm h-11 w-full rounded-xl border-slate-200 bg-slate-50 focus:border-indigo-400 focus:bg-white">
+                        <option value="" disabled selected hidden>Select a user</option>
+                        @foreach ($user as $u)
+                            <option value="{{ $u->id }}" {{ $employee->user_id == $u->id ? 'selected' : '' }}>{{ $u->name }}</option>
+                        @endforeach
+                    </select>
                 </label>
 
                 <label class="form-control">
@@ -71,7 +75,7 @@
                 <label class="form-control">
                     <span class="label-text mb-2 text-sm font-medium text-slate-700">Department</span>
                     <select name="department_id"
-                        class="select select-bordered select-sm h-11 w-full rounded-xl border-slate-200 bg-slate-50 focus:border-indigo-400 focus:bg-white">
+                        class="searchable-select select select-bordered select-sm h-11 w-full rounded-xl border-slate-200 bg-slate-50 focus:border-indigo-400 focus:bg-white">
                         <option value="" disabled selected hidden>Select a department</option>
                         @foreach ($departments as $department)
                             <option value="{{ $department->id }}" {{ $employee->department_id == $department->id ? 'selected' : '' }}>
@@ -113,13 +117,13 @@
                 <label class="form-control">
                     <span class="label-text mb-2 text-sm font-medium text-slate-700">Hire date</span>
                     <input type="date" name="hire_date"
-                        class="input input-bordered input-sm h-11 w-full rounded-xl border-slate-200 bg-slate-50 focus:border-indigo-400 focus:bg-white" value="{{ $employee->hire_date }}" />
+                        class="input input-bordered input-sm h-11 w-full rounded-xl border-slate-200 bg-slate-50 focus:border-indigo-400 focus:bg-white" value="{{ old('hire_date', $employee->hire_date ? $employee->hire_date->format('Y-m-d') : null) }}" />
                 </label>
 
                 <label class="form-control">
                     <span class="label-text mb-2 text-sm font-medium text-slate-700">Termination date</span>
                     <input type="date" name="termination_date"
-                        class="input input-bordered input-sm h-11 w-full rounded-xl border-slate-200 bg-slate-50 focus:border-indigo-400 focus:bg-white" value="{{ $employee->termination_date }}" />
+                        class="input input-bordered input-sm h-11 w-full rounded-xl border-slate-200 bg-slate-50 focus:border-indigo-400 focus:bg-white" value="{{ old('termination_date', $employee->termination_date ? $employee->termination_date->format('Y-m-d') : null) }}" />
                 </label>
 
                 <label class="form-control">
@@ -139,7 +143,7 @@
                 <label class="form-control">
                     <span class="label-text mb-2 text-sm font-medium text-slate-700">Date of birth</span>
                     <input type="date" name="date_of_birth"
-                        class="input input-bordered input-sm h-11 w-full rounded-xl border-slate-200 bg-slate-50 focus:border-indigo-400 focus:bg-white" value="{{ $employee->date_of_birth }}" />
+                        class="input input-bordered input-sm h-11 w-full rounded-xl border-slate-200 bg-slate-50 focus:border-indigo-400 focus:bg-white" value="{{ old('date_of_birth', $employee->date_of_birth ? $employee->date_of_birth->format('Y-m-d') : null) }}" />
                 </label>
 
                 <label class="form-control">
@@ -219,8 +223,8 @@
             </div>
 
             <div class="flex items-center justify-end gap-3 border-t border-slate-200 pt-5">
-                <button type="button" class="btn btn-ghost rounded-xl px-4 text-slate-600"
-                    onclick="document.getElementById('add_employee_modal').close()">Cancel</button>
+                <a type="button" class="btn btn-ghost rounded-xl px-4 text-slate-600"
+                    href="{{ route('employees.index') }}">Cancel</a>
                 <button type="submit"
                     class="btn btn-primary rounded-xl bg-indigo-600 px-5 text-white hover:bg-indigo-500">Save
                     employee</button>

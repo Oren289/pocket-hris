@@ -6,6 +6,7 @@ use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\UpdateEmployeeRequest;
 use App\Models\Employee;
 use App\Models\Department;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 
 class EmployeeController extends Controller
@@ -17,8 +18,9 @@ class EmployeeController extends Controller
     {
         $employees = Employee::all();
         $departments = Department::all();
+        $user = User::all();
 
-        return view('employees.index', compact('employees', 'departments'));
+        return view('employees.index', compact('employees', 'departments', 'user'));
     }
 
     /**
@@ -55,7 +57,8 @@ class EmployeeController extends Controller
     public function edit(Employee $employee)
     {
         $departments = Department::all();
-        return view('employees.edit', compact('employee', 'departments'));
+        $user = User::all();
+        return view('employees.edit', compact('employee', 'departments', 'user'));
     }
 
     /**
