@@ -26,7 +26,7 @@ class StoreEmployeeRequest extends FormRequest
             'user_id' => ['nullable', 'integer', 'exists:users,id'],
             'manager_id' => ['nullable', 'integer', 'exists:employees,id'],
             'employee_code' => ['required', 'string', 'max:255', 'unique:employees,employee_code'],
-            'department_id' => ['nullable', 'exists:departments,id'],   
+            'department_id' => ['nullable', 'exists:departments,id'],
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', 'unique:employees,email'],
@@ -52,4 +52,11 @@ class StoreEmployeeRequest extends FormRequest
             'emergency_contact_phone' => ['nullable', 'string', 'max:30'],
         ];
     }
+
+    // protected function prepareForValidation(): void
+    // {
+    //     $this->merge([
+    //         'role' => $this->input('role', 'user'),
+    //     ]);
+    // }
 }

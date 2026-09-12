@@ -1,9 +1,9 @@
 @php
     $navItems = [
         ['label' => 'Dashboard', 'route' => 'dashboard', 'icon' => 'home'],
-        ['label' => 'Employees', 'route' => 'employees.index', 'icon' => 'user'],
+        ['label' => 'Employees', 'route' => 'employees.index', 'icon' => 'employee'],
         ['label' => 'Departments', 'route' => 'departments.index', 'icon' => 'department'],
-        // ['label' => 'Settings', 'route' => 'employees.index', 'icon' => 'settings'],
+        ['label' => 'Users', 'route' => 'users.index', 'icon' => 'user'],
     ];
 @endphp
 
@@ -45,33 +45,23 @@
                         class="inline-flex h-8 w-8 items-center justify-center rounded-lg {{ $isActive ? 'bg-indigo-500/20 text-indigo-200' : 'bg-slate-800 text-slate-300 group-hover:bg-slate-700' }}">
                         @switch($item['icon'])
                             @case('home')
-                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
-                                        d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1v-9.5Z" />
-                                </svg>
+                                <i class="bi bi-house-door"></i>
                             @break
 
-                            @case('user')
-                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
-                                        d="M16 18v-1a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v1M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
-                                </svg>
+                            @case('employee')
+                                <i class="bi bi-people"></i>
                             @break
 
                             @case('department')
-                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
-                                        d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M9 17h1M14 9h1M14 13h1M14 17h1" />
-                                </svg>
+                                <i class="bi bi-building"></i>
                             @break
 
+                            @case('user')
+                                <i class="bi bi-person"></i>
+                            @break
+                            
                             @case('settings')
-                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
-                                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0-2.572 1.065c-.94 1.543-3.31.826-2.37 2.37a1.724 1.724 0 0 0-1.066 2.573c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0-2.572-1.065c-.94 1.543-3.31.826-2.37-2.37a1.724 1.724 0 0 0-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.065-2.572c-.94-1.543.826-3.31 2.37-2.37a1.724 1.724 0 0 0 2.572-1.065Z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
-                                        d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                </svg>
+                                <i class="bi bi-gear-wide"></i>
                             @break
                         @endswitch
                     </span>
